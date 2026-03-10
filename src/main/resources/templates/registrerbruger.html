@@ -7,10 +7,11 @@
 </head>
 
 <body>
-<h1>Welcome to the Javalin demo</h1>
-<a href="createuser.html">Opret bruger href</a>
-<a th:href="@{/new}">Opret bruger th:href</a>
-<!--<a th:href="/createuser.html" th:href="@{/new}">Opret bruger med begge</a>-->
-<p><a href="createuser.html" th:href="@{/new}">Create user</a></p>
+<h3>Registrer bruger</h3>
+<form method="post" th:action="@{/new}">
+    Brugernavn <input type="text" name="username">
+    Password <input type="password" name="password">
+    <button type="submit">Opret</button>
+</form>
 </body>
 </html>
