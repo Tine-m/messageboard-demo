@@ -15,14 +15,15 @@
     Velkommen gæst
 </h1>
 
-<!-- Alternativ if-else
+<!-- Alternativ if-else syntax
 <h1 th:text="${session.currentUser} ?
               'Velkommen ' + ${session.currentUser.username} :
               'Velkommen gæst'">
-</h1>
--->
-<p><a href="/opretbruger">Opret bruger</a></p>
+</h1> -->
 
+<p th:text="${msg}"></p>
+
+<p><a href="/opretbruger">Opret bruger</a></p>
 <p>
     <a th:unless="${session.currentUser}" href="/login">Login</a>
     <a th:if="${session.currentUser}" href="/logout">Logout</a>

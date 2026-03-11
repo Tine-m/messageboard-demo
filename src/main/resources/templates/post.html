@@ -13,7 +13,7 @@
 <ul class="post-list">
     <li th:each="post : ${postList}">
         <img th:src="@{/images/{img}(img=${post.image})}" width="60" alt="img"/>
-        <span th:text="${post.text}">Post text</span>
+        <span th:text="${post.title}">Post text</span>
     </li>
 </ul>
 
@@ -31,10 +31,10 @@
         <td>
             <img th:src="@{/images/{img}(img=${post.image})}" width="60" alt="img"/>
         </td>
-        <td th:text="${post.text}"></td>
+        <td th:text="${post.title}"></td>
         <td>
             <a th:href="@{/posts/{id}(id=${post.post_id})}"
-               th:text="${post.text}">
+               th:text="${post.title}">
             </a>
         </td>
     </tr>
@@ -45,7 +45,7 @@
 <div class="post-container">
     <div class="post" th:each="post : ${postList}">
         <img th:src="@{/images/{img}(img=${post.image})}" width="120">
-        <p th:text="${post.text}"></p>
+        <p th:text="${post.title}"></p>
     </div>
 </div>
 
@@ -53,7 +53,7 @@
 <div class="grid">
     <div class="card" th:each="post : ${postList}">
         <img th:src="@{/images/{img}(img=${post.image})}">
-        <p th:text="${post.text}"></p>
+        <p th:text="${post.title}"></p>
     </div>
 </div>
 
@@ -62,7 +62,7 @@
     <li th:each="post : ${postList}">
         <a th:href="@{/posts/{id}(id=${post.post_id})}">
             <img th:src="@{/images/{img}(img=${post.image})}" width="60">
-            <span th:text="${post.text}"></span>
+            <span th:text="${post.title}"></span>
         </a>
     </li>
 </ul>

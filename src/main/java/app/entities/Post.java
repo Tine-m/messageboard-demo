@@ -3,12 +3,14 @@ package app.entities;
 public class Post {
 
     private int post_id;
-    private String text;
+    private String title;
+    private String content;
     private String image;
 
-    public Post(int post_id, String text, String image) {
+    public Post(int post_id, String title, String content, String image) {
         this.post_id = post_id;
-        this.text = text;
+        this.title = title;
+        this.content = content;
         this.image = image;
     }
 
@@ -16,11 +18,15 @@ public class Post {
         return post_id;
     }
 
-    public String getText() {
-        return text;
+    public String getContent() {
+        return content;
     }
 
     public String getImage() {
         return image;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }
