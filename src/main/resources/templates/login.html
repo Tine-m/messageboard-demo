@@ -7,14 +7,14 @@
 </head>
 
 <body>
-<h3>Registrer bruger</h3>
+<h3>Login</h3>
 
 <p th:text="${msg}"></p>
 
-<form method="post" action="/opretbruger">
+<form method="post" action="/login">
     Brugernavn <input type="text" name="username">
     Password <input type="password" name="password">
-    <button type="submit">Opret</button>
+    <button type="submit">Login</button>
 </form>
 </body>
 </html>

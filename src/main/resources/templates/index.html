@@ -7,7 +7,25 @@
 </head>
 
 <body>
-<h1>Welcome to the Javalin demo</h1>
-<p><a th:href="@{/new}">Opret bruger</a></p>
+<h1 th:if="${session.currentUser}">
+    Velkommen <span th:text="${session.currentUser.username}"></span>
+</h1>
+
+<h1 th:unless="${session.currentUser}">
+    Velkommen gæst
+</h1>
+
+<!-- Alternativ if-else
+<h1 th:text="${session.currentUser} ?
+              'Velkommen ' + ${session.currentUser.username} :
+              'Velkommen gæst'">
+</h1>
+-->
+<p><a href="/opretbruger">Opret bruger</a></p>
+
+<p>
+    <a th:unless="${session.currentUser}" href="/login">Login</a>
+    <a th:if="${session.currentUser}" href="/logout">Logout</a>
+</p>
 </body>
 </html>
