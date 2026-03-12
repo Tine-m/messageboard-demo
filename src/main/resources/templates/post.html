@@ -28,7 +28,9 @@
         <td th:text="${post.title}"></td>
         <td>
             <a th:href="@{/posts/{id}(id=${post.post_id})}"> Se detaljer</a>
-           <button type = "submit" th:formaction="@{/posts/{id}/delete(id=${post.post_id})}" th:formmethod="post">Slet</button>
+            <form method="post" th:action="@{/posts/{id}/delete(id=${post.post_id})}">
+                <button type = "submit">Slet</button>
+            </form>
         </td>
     </tr>
     </tbody>
