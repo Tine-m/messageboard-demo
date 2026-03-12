@@ -1,11 +1,14 @@
 package app.controllers;
 
+import app.entities.Post;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
+
+import java.util.List;
 
 public class UserController {
 
@@ -37,15 +40,6 @@ public class UserController {
         try {
             User user = UserMapper.login(username, password, connectionPool);
             ctx.sessionAttribute("currentUser", user);
-            // test data - simulerer kald til DB via mapper
-            /* List<Post> posts = List.of(
-                    new Post(1, "Min første post", "xxx","cat.jpg"),
-                    new Post(2, "Hej fra Javalin", "XXX","coffee.jpg"),
-                    new Post(3, "Syntax er svær", "xxx", "code.jpg")
-            );
-            ctx.attribute("postList", posts);
-            ctx.render("post.html");*/
-            // Better solution:
             ctx.redirect("/posts");
         } catch (DatabaseException e) {
             ctx.attribute("msg", e.getMessage());

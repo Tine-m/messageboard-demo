@@ -9,20 +9,14 @@
 <body>
 <h1>Message Board</h1>
 
-<h3>Variant 1 Simpel liste </h3>
-<ul class="post-list">
-    <li th:each="post : ${postList}">
-        <img th:src="@{/images/{img}(img=${post.image})}" width="60" alt="img"/>
-        <span th:text="${post.title}">Post text</span>
-    </li>
-</ul>
 
-<h3>Variant 2 Table med data</h3>
+<h3>Table med data</h3>
 <table>
     <thead>
     <tr>
         <th>Image</th>
-        <th>Post</th>
+        <th>Titel</th>
+        <th>Action</th>
     </tr>
     </thead>
 
@@ -33,38 +27,13 @@
         </td>
         <td th:text="${post.title}"></td>
         <td>
-            <a th:href="@{/posts/{id}(id=${post.post_id})}"
-               th:text="${post.title}">
-            </a>
+            <a th:href="@{/posts/{id}(id=${post.post_id})}"> Se detaljer</a>
+           <button type = "submit" th:formaction="@{/posts/{id}/delete(id=${post.post_id})}" th:formmethod="post">Slet</button>
         </td>
     </tr>
     </tbody>
 </table>
 
-<h3>Variant 3 div/cards - blog/feed </h3>
-<div class="post-container">
-    <div class="post" th:each="post : ${postList}">
-        <img th:src="@{/images/{img}(img=${post.image})}" width="120">
-        <p th:text="${post.title}"></p>
-    </div>
-</div>
 
-<h3>Variant 4 Grid (galleri) </h3>
-<div class="grid">
-    <div class="card" th:each="post : ${postList}">
-        <img th:src="@{/images/{img}(img=${post.image})}">
-        <p th:text="${post.title}"></p>
-    </div>
-</div>
-
-<h3>Variant 5 klikbar</h3>
-<ul>
-    <li th:each="post : ${postList}">
-        <a th:href="@{/posts/{id}(id=${post.post_id})}">
-            <img th:src="@{/images/{img}(img=${post.image})}" width="60">
-            <span th:text="${post.title}"></span>
-        </a>
-    </li>
-</ul>
 </body>
 </html>
