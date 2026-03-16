@@ -116,7 +116,7 @@ Controllerens typiske opgave er at:
 En controller bør *ikke* indeholde:
 - SQL
 - større forretningslogik (f.eks. momsberegning)
-- nok heller ikke passwordregler
+- måske heller ikke passwordregler
 
 ---
 ### I vores konkrete eksempel ("Registrér bruger")
@@ -131,7 +131,7 @@ Men ikke:
 
 
 Vi kan nemlig ikke sådan bare unit teste web-framework-logik, f.eks Javalin's `Context`. 
-Idéen er at vi laver såkaldte rene unit tests, der er isolerede fra andre klasser. Dvs. som ikke kontrollerer om brugeren rent faktisk oprettes i databasen eller viderestilles til den korrekt side i browseren (den type tests kaldes hhv. service-/integrationstests og UI tests). 
+Idéen er at vi laver såkaldte rene unit tests. Dvs. som ikke kontrollerer om brugeren rent faktisk oprettes i databasen eller viderestilles til den korrekt side i browseren (den type tests kaldes hhv. service-/integrationstests og UI tests). 
 
 Unit tests ligger derfor i bunden af hvad der kaldes testpyramiden, der illustrerer en hensigtsmæssig tilgang til testautomatisering. Vi vil helst have flest unit tests i vores projekt, fordi de er mest simple at skrive og at afvikle. 
 
