@@ -1,5 +1,8 @@
 # TDD øvelse
 
+Selve opgavebeskrivelsen ligger længere nede i beskrivelsen.
+Først bliver brugerkrav inkl. acceptkriterier beskrevet.
+
 ### Feature: Registrér bruger
 
 **Beskrivelse**
@@ -132,13 +135,13 @@ Idéen er at vi laver såkaldte rene unit tests, der er isolerede fra andre klas
 
 Unit tests ligger derfor i bunden af hvad der kaldes testpyramiden, der illustrerer en hensigtsmæssig tilgang til testautomatisering. Vi vil helst have flest unit tests i vores projekt, fordi de er mest simple at skrive og at afvikle. 
 
-![pyramid.png](pyramid.png)
+![pyramid.png](images/pyramid.png)
 --- 
 ### Vores Test Strategy (TDD)
 
 Vores strategi bliver at skrive unit tests til validering af kravene til brugernavn og password, 
 *før* vi implementerer løsningen.
-
+    
 Vi kommer i bedste TDD stil til at arbejde trinvist (iterativt) med test-kode-refaktor 
 
 ![tdd.png](images/tdd.png)
