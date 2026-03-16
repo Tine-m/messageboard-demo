@@ -1,7 +1,7 @@
 # TDD øvelse
+Først beskrives brugerkrav inkl. acceptkriterier til funktionen registrér bruger. 
 
-Selve opgavebeskrivelsen ligger længere nede i beskrivelsen.
-Først bliver brugerkrav inkl. acceptkriterier beskrevet.
+Efterfølgende hvad du/vi helt konkret skal gøre mht TDD og unit tests.
 
 ### Feature: Registrér bruger
 
