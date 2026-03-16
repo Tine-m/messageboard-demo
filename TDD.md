@@ -115,7 +115,7 @@ Controllerens typiske opgave er at:
 
 En controller bør *ikke* indeholde:
 - SQL
-- større forretningslogik (f.eks. momsberegning)
+- større forretningslogik (f.eks. lønberegning)
 - måske heller ikke passwordregler
 
 ---
