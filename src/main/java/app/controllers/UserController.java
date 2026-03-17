@@ -1,14 +1,11 @@
 package app.controllers;
 
-import app.entities.Post;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
-
-import java.util.List;
 
 public class UserController {
 
@@ -20,17 +17,26 @@ public class UserController {
         app.get("/logout", ctx -> logout(ctx));
     }
 
-        public static void registrerBruger(Context ctx, ConnectionPool connectionPool) {
+    public static void registrerBruger(Context ctx, ConnectionPool connectionPool) {
         String username = ctx.formParam("username");
         String password = ctx.formParam("password");
-        try {
-            UserMapper.createuser(username, password, connectionPool);
-            ctx.render("index.html");
-            // Better solution:
-            //ctx.redirect("/");
-        } catch (DatabaseException e) {
-            ctx.attribute("msg", e.getMessage());
+
+        String error = validateUser(username, password);
+        if (!error.isEmpty())
+        {
+            ctx.attribute("msg", error);
             ctx.render("registrerbruger.html");
+        } else{
+
+            try {
+                UserMapper.createuser(username, password, connectionPool);
+                ctx.render("index.html");
+                // Better solution:
+                //ctx.redirect("/");
+            } catch (DatabaseException e) {
+                ctx.attribute("msg", e.getMessage());
+                ctx.render("registrerbruger.html");
+            }
         }
     }
 
@@ -50,5 +56,18 @@ public class UserController {
     public static void logout(Context ctx) {
         ctx.req().getSession().invalidate();
         ctx.redirect("/");
+    }
+
+    public static String validateUser(String username, String password) {
+        if (username.isEmpty()) {
+            return "Brugernavn skal udfyldes";
+        }
+        else if (password.isEmpty()) {
+            return "Password skal udfyldes";
+        }
+        else if (username.length()<3) {
+            return "Brugernavn skal være mindst 3 tegn";
+        }
+        else return "";
     }
 }
