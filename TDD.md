@@ -104,7 +104,7 @@ Og registreringssiden vises igen med fejlbeskeder.
 
 ---
 
-### Tekniske noter
+### Design-note
 
 Designet af en web app bør adskille ansvar mellem controller opgaver (at tale med "web") og andre opgaver (f.eks. at tale med databasen). Altså overholde Single Responsibility princippet.
 
